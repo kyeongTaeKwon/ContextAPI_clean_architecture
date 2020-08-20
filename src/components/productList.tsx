@@ -7,7 +7,7 @@ type Props = {
 };
 const ProductList = ({ items }: Props) => {
   const renderProductList = (items: Item[]) => {
-    return items.map(item => <Product item={item} />);
+    return items.map(item => <Product item={item} key={item.id} />);
   };
 
   return <div>{renderProductList(items)}</div>;
