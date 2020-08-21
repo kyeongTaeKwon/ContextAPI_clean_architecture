@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useProductsState } from "../contexts/ProductsContext";
 import { Item } from "../fakeData";
@@ -6,7 +6,7 @@ import ProductsList from "../components/productList";
 import _ from "lodash";
 
 const Products = () => {
-  const products = useProductsState();
+  const { items: products } = useProductsState();
 
   //? 전역에서 가져온 Products state로 만든 Base state인 items와, items를 토대로
   //? 실제 뷰로 보여지는 currentItem 으로 상태를 분리했지만 살짝 복잡해진감이 있어 고민 ...
@@ -20,13 +20,14 @@ const Products = () => {
   const pageSize: number = 5;
   const orderBy = "desc";
 
-  const handlePagination = () => {
+  const onPagination = () => {
     const startIndex = (currentPage - 1) * pageSize;
     const result = _.slice(items, startIndex, startIndex + pageSize);
+    console.log("페이지네이션 함수 실행");
     setCurrentItems(result);
   };
 
-  const handleOrderBy = () => {
+  const onOrderBy = useCallback(() => {
     //! 상태 불변성을 위해 concat 메소드 추가
     let result =
       orderBy === "desc"
@@ -34,7 +35,8 @@ const Products = () => {
         : [...items].sort((a, b) => a.score - b.score);
 
     setItems(result);
-  };
+    console.log("정렬 함수 실행");
+  }, [orderBy]);
 
   const renderPageBtn = (items: Item[]) => {
     const pageCount = Math.ceil(items.length / pageSize);
@@ -51,8 +53,8 @@ const Products = () => {
     return pageBtns;
   };
 
-  useEffect(handleOrderBy, [orderBy]);
-  useEffect(handlePagination, [currentPage, items]);
+  useEffect(onOrderBy, [orderBy]);
+  useEffect(onPagination, [currentPage, items]);
 
   return (
     <div>
