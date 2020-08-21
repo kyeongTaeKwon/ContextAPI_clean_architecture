@@ -1,5 +1,5 @@
 import React, { createContext, Dispatch, useReducer, useContext } from "react";
-import { productsItems } from "../fakeData";
+import { productsItems, coupons } from "../fakeData";
 import {
   ProductsReducer,
   ProductsState,
@@ -21,7 +21,11 @@ export const ProductsContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [products, dispatch] = useReducer(ProductsReducer, productsItems);
+  const [products, dispatch] = useReducer(ProductsReducer, {
+    items: productsItems,
+    cart: [],
+    coupons: coupons,
+  });
   return (
     <ProductsDispatchContext.Provider value={dispatch}>
       <ProductsStateContext.Provider value={products}>

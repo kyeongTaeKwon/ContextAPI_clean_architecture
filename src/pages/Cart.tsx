@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
+import {
+  useProductsState,
+  useProductsDispatch,
+} from "../contexts/ProductsContext";
+import ProductList from "../components/productList";
 
 const Cart: React.FC = () => {
+  const { cart } = useProductsState();
+  const totalOrderAmount = useMemo<number>(
+    () => cart.reduce((acc, cur) => (acc += cur.price), 0),
+    [cart]
+  );
+
   return (
     <div>
-      <h1>장바구니 페이지입니다.</h1>
+      <div>
+        <p>{totalOrderAmount}</p>
+      </div>
+      <ProductList items={cart} />
     </div>
   );
 };
-
 export default Cart;

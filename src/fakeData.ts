@@ -6,6 +6,12 @@ export type Item = {
   score: number;
   availableCoupon?: boolean;
 };
+export type Coupon = {
+  type: string;
+  title: string;
+  discountRate?: number;
+  discountAmount?: number;
+};
 
 export const productsItems = [
   {
@@ -106,5 +112,17 @@ export const productsItems = [
       "https://cdn.class101.net/images/cbadec97-d306-4669-bbcf-eef5d1a9d261",
     price: 230000,
     score: 220,
+  },
+];
+export const coupons = [
+  {
+    type: "rate",
+    title: "10% 할인 쿠폰",
+    discountRate: 10,
+  },
+  {
+    type: "amount",
+    title: "10,000원 할인 쿠폰",
+    discountAmount: 10000,
   },
 ];
