@@ -8,8 +8,8 @@ const Products = () => {
   const [currentPage, setPage] = useState<number>(1);
   const [currentItems, setCurrentItems] = useState<Item[]>([]);
 
-  const pageSize = 5;
-  const orderBy = "desc";
+  const pageSize: number = 5;
+  const orderBy: "desc" | "asc" = "desc";
 
   const handlePagination = () => {
     const startIndex = (currentPage - 1) * pageSize;
@@ -31,8 +31,12 @@ const Products = () => {
     const pageCount = Math.ceil(items.length / pageSize);
     const pageBtns = [];
 
-    for (let i = 1; i <= pageCount; i++) {
-      pageBtns.push(<button onClick={() => setPage(i)}>{i}</button>);
+    for (let index = 1; index <= pageCount; index++) {
+      pageBtns.push(
+        <button onClick={() => setPage(index)} key={`pageBtn${index}`}>
+          {index}
+        </button>
+      );
     }
 
     return pageBtns;
