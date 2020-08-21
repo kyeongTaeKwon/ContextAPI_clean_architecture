@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {
-  useProductsState,
-  useProductsDispatch,
-} from "../contexts/ProductsContext";
+import { useProductsState } from "../contexts/ProductsContext";
 import { Item } from "../fakeData";
 import ProductsList from "../components/productList";
 import _ from "lodash";
 
 const Products = () => {
-  const items = useProductsState();
-  const dispatch = useProductsDispatch();
+  const products = useProductsState();
 
+  const [items, setItems] = useState<Item[]>(products);
   const [currentPage, setPage] = useState<number>(1);
   const [currentItems, setCurrentItems] = useState<Item[]>([]);
 
@@ -30,7 +27,7 @@ const Products = () => {
         ? [...items].sort((a, b) => b.score - a.score)
         : [...items].sort((a, b) => a.score - b.score);
 
-    dispatch({ type: "SET_ITEMS", items: result });
+    setItems(result);
   };
 
   const renderPageBtn = (items: Item[]) => {
