@@ -22,7 +22,7 @@ export const CartContextProvider = ({
   );
 };
 
-//! dl
+// TODO: useCallback 을 사용해서 아래의 훅스들도 분리할 수 있음 분리하기 , 하지만 괜히 의미 없이 파일만 늘어나는 것도 조심! //
 export const useCartState = () => {
   const state = useContext(CartStateContext);
   if (!state) throw new Error("CartProvider not found!");
