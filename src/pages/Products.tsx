@@ -8,7 +8,6 @@ import ProductsList from "../components/productList";
 import _ from "lodash";
 
 const Products = () => {
-  // const [items, setItems] = useState<Item[]>(productsItems);
   const items = useProductsState();
   const dispatch = useProductsDispatch();
 

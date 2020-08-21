@@ -1,35 +1,20 @@
 import React, { createContext, Dispatch, useReducer, useContext } from "react";
-import { Item, productsItems } from "../fakeData";
+import { productsItems } from "../fakeData";
+import {
+  ProductsReducer,
+  ProductsState,
+  Action,
+} from "../reducers/ProductsReducer";
 
-type ProductsState = Item[];
+type ProductsDispatch = Dispatch<Action>;
 
 const ProductsStateContext = createContext<ProductsState | undefined>(
   undefined
 );
 
-type Action = { type: "SET_ITEMS"; items: ProductsState };
-
-type ProductsDispatch = Dispatch<Action>;
-
 const ProductsDispatchContext = createContext<ProductsDispatch | undefined>(
   undefined
 );
-
-const ProductsReducer = (
-  state: ProductsState,
-  action: Action
-): ProductsState => {
-  switch (action.type) {
-    case "SET_ITEMS": {
-      const items = action.items;
-      state = items;
-      return state;
-    }
-    default: {
-      return state;
-    }
-  }
-};
 
 export const ProductsContextProvider = ({
   children,
