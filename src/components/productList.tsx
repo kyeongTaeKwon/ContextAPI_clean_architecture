@@ -1,7 +1,7 @@
 import React from "react";
 import Product from "./product";
 import { Item } from "../fakeData";
-
+import { ProductsListWrapper } from "../styles/productStyle/List";
 type Props = {
   items: Item[];
 };
@@ -10,7 +10,7 @@ const ProductList = ({ items }: Props) => {
     return items.map(item => <Product item={item} key={item.id} />);
   };
 
-  return <div>{renderProductList(items)}</div>;
+  return <ProductsListWrapper>{renderProductList(items)}</ProductsListWrapper>;
 };
 
 export default ProductList;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Container } from "../styles/productStyle/Container";
 import { useProductsState } from "../contexts/ProductsContext";
 import { Item } from "../fakeData";
 import ProductsList from "../components/productList";
@@ -57,11 +58,11 @@ const Products = () => {
   useEffect(onPagination, [currentPage, items]);
 
   return (
-    <div>
+    <Container>
       <UserInfo />
       <ProductsList items={currentItems} />
       {renderPageBtn(items)}
-    </div>
+    </Container>
   );
 };
 

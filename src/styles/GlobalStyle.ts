@@ -4,11 +4,12 @@ import { normalize } from "styled-normalize";
 const GlobalStyle = createGlobalStyle`
     //! 원활한 작업을 위해 노말라이즈 추가! 
     ${normalize}
+    
     * {
         box-sizing:border-box;
     }
 
-    body
+    html,body
     {
         @import url('https://fonts.googleapis.com/earlyaccess/notosanskr.css');
         font-family: "Noto Sans KR", sans-serif ;

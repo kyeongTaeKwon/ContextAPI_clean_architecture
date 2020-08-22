@@ -1,12 +1,20 @@
 import React from "react";
 import { Item } from "../fakeData";
 import {
+  ProductBox,
+  ProductImg,
+  ProductPrice,
+  ProductTitle,
+} from "../styles/productStyle/Item";
+import {
   useProductsState,
   useProductsDispatch,
 } from "../contexts/ProductsContext";
+
 type Props = {
   item: Item;
 };
+
 const Product = ({ item }: Props) => {
   const { cart } = useProductsState();
   const dispatch = useProductsDispatch();
@@ -19,9 +27,9 @@ const Product = ({ item }: Props) => {
   };
   console.log("프로덕트 렌더링 확인");
   return (
-    <div>
+    <ProductBox>
       {cart.find(el => el.id === item.id) && <p>장바구니에 있습니다.</p>}
-      <img
+      <ProductImg
         src={item.coverImage}
         alt={item.title}
         onClick={() => {
@@ -38,9 +46,9 @@ const Product = ({ item }: Props) => {
           }
         }}
       />
-      <h2>{item.title}</h2>
-      <p>{item.price}</p>
-    </div>
+      <ProductTitle>{item.title}</ProductTitle>
+      <ProductPrice>{item.price}</ProductPrice>
+    </ProductBox>
   );
 };
 
