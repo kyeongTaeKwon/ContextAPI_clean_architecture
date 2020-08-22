@@ -7,6 +7,7 @@ import ProductList from "../components/productList";
 
 const Cart: React.FC = () => {
   const { cart } = useProductsState();
+
   const totalOrderAmount = useMemo<number>(
     () => cart.reduce((acc, cur) => (acc += cur.price), 0),
     [cart]
