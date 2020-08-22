@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
 import { useProductsState } from "../contexts/ProductsContext";
 import { Item } from "../fakeData";
 import ProductsList from "../components/productList";
+import UserInfo from "../components/userInfo";
 import _ from "lodash";
 
 const Products = () => {
@@ -36,7 +36,7 @@ const Products = () => {
 
     setItems(result);
     console.log("정렬 함수 실행");
-  }, [orderBy]);
+  }, [orderBy, items]);
 
   const renderPageBtn = (items: Item[]) => {
     const pageCount = Math.ceil(items.length / pageSize);
@@ -58,7 +58,7 @@ const Products = () => {
 
   return (
     <div>
-      <Link to="/cart">장바구니로 이동</Link>
+      <UserInfo />
       <ProductsList items={currentItems} />
       {renderPageBtn(items)}
     </div>
