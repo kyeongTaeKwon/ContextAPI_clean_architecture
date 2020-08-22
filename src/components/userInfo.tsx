@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useProductsState } from "../contexts/ProductsContext";
+
 const UserInfo = () => {
   const { coupons, cart } = useProductsState();
   return (

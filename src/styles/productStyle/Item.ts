@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ProductBox = styled.div`
   /* flex: auto; */
   margin-right: 2rem;
+  height: 30rem;
 `;
 export const ProductImg = styled.img`
   flex: auto;

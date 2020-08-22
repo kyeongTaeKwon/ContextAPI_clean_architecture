@@ -25,6 +25,11 @@ const Product = ({ item }: Props) => {
   const takeOutItem = (id: string) => {
     dispatch({ type: "TAKEOUT_ITEM", id });
   };
+  const makeCommaPrice = (price: number) => {
+    const stringPrice = price.toString();
+    return stringPrice.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, "$1,");
+  };
+
   console.log("프로덕트 렌더링 확인");
   return (
     <ProductBox>
@@ -47,7 +52,7 @@ const Product = ({ item }: Props) => {
         }}
       />
       <ProductTitle>{item.title}</ProductTitle>
-      <ProductPrice>{item.price}</ProductPrice>
+      <ProductPrice>{makeCommaPrice(item.price)}원</ProductPrice>
     </ProductBox>
   );
 };
