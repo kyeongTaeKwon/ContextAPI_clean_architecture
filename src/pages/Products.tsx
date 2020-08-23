@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Container } from "../styles/productStyle/Container";
 import { PageBtn } from "../styles/productStyle/PageBtn";
 import { useProductsState } from "../contexts/ProductsContext";
-import { Item } from "../fakeData";
+import { Item } from "../core/data";
 import ProductsList from "../components/productList";
 import UserInfo from "../components/userInfo";
 import _ from "lodash";

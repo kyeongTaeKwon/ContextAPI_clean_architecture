@@ -1,26 +1,14 @@
 import React, { createContext, Dispatch, useReducer, useContext } from "react";
-import { productsItems, coupons } from "../fakeData";
-import {
-  ProductsReducer,
-  ProductsState,
-  Action,
-} from "../reducers/ProductsReducer";
+import { productsItems, coupons } from "../core/data";
+import { ProductsReducer, ProductsState, Action } from "../reducers/ProductsReducer";
 
 type ProductsDispatch = Dispatch<Action>;
 
-const ProductsStateContext = createContext<ProductsState | undefined>(
-  undefined
-);
+const ProductsStateContext = createContext<ProductsState | undefined>(undefined);
 
-const ProductsDispatchContext = createContext<ProductsDispatch | undefined>(
-  undefined
-);
+const ProductsDispatchContext = createContext<ProductsDispatch | undefined>(undefined);
 
-export const ProductsContextProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const ProductsContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [products, dispatch] = useReducer(ProductsReducer, {
     items: productsItems,
     cart: [],
@@ -28,9 +16,7 @@ export const ProductsContextProvider = ({
   });
   return (
     <ProductsDispatchContext.Provider value={dispatch}>
-      <ProductsStateContext.Provider value={products}>
-        {children}
-      </ProductsStateContext.Provider>
+      <ProductsStateContext.Provider value={products}>{children}</ProductsStateContext.Provider>
     </ProductsDispatchContext.Provider>
   );
 };

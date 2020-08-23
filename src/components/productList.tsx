@@ -1,6 +1,6 @@
 import React from "react";
 import Product from "./product";
-import { Item } from "../fakeData";
+import { Item } from "../core/data";
 import { ProductsListWrapper } from "../styles/productStyle/List";
 type Props = {
   items: Item[];
