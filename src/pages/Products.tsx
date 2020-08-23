@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Container } from "../styles/productStyle/Container";
+import { PageBtn } from "../styles/productStyle/PageBtn";
 import { useProductsState } from "../contexts/ProductsContext";
-import { Item } from "../fakeData";
+import { Item } from "../core/data";
 import ProductsList from "../components/productList";
 import UserInfo from "../components/userInfo";
 import _ from "lodash";
@@ -30,13 +32,16 @@ const Products = () => {
   const onOrderBy = useCallback(() => {
     //! 상태 불변성을 위해 concat 메소드 추가
     let result =
-      orderBy === "desc"
-        ? [...items].sort((a, b) => b.score - a.score)
-        : [...items].sort((a, b) => a.score - b.score);
+      orderBy === "desc" ? [...items].sort((a, b) => b.score - a.score) : [...items].sort((a, b) => a.score - b.score);
 
     setItems(result);
     console.log("정렬 함수 실행");
   }, [orderBy, items]);
+
+  useEffect(onOrderBy, [orderBy]);
+  useEffect(onPagination, [currentPage, items]);
+
+  const onPageSelect = (index: number) => (index === currentPage ? true : false);
 
   const renderPageBtn = (items: Item[]) => {
     const pageCount = Math.ceil(items.length / pageSize);
@@ -44,24 +49,21 @@ const Products = () => {
 
     for (let index = 1; index <= pageCount; index++) {
       pageBtns.push(
-        <button onClick={() => setPage(index)} key={`pageBtn${index}`}>
+        <PageBtn isSelected={onPageSelect(index)} onClick={() => setPage(index)} key={`pageBtn${index}`}>
           {index}
-        </button>
+        </PageBtn>
       );
     }
 
     return pageBtns;
   };
 
-  useEffect(onOrderBy, [orderBy]);
-  useEffect(onPagination, [currentPage, items]);
-
   return (
-    <div>
+    <Container>
       <UserInfo />
       <ProductsList items={currentItems} />
       {renderPageBtn(items)}
-    </div>
+    </Container>
   );
 };
 

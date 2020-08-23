@@ -1,4 +1,4 @@
-import { Item, Coupon } from "../fakeData";
+import { Item, Coupon } from "../core/data";
 
 export type ProductsState = {
   items: Item[];
@@ -10,10 +10,7 @@ export type Action =
   | { type: "PUT_ITEM"; item: Item }
   | { type: "TAKEOUT_ITEM"; id: string };
 
-export const ProductsReducer = (
-  state: ProductsState,
-  action: Action
-): ProductsState => {
+export const ProductsReducer = (state: ProductsState, action: Action): ProductsState => {
   switch (action.type) {
     case "SET_ITEMS": {
       const items = action.items;
