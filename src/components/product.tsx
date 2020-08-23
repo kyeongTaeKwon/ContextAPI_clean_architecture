@@ -10,14 +10,7 @@ type Props = {
 
 const Product = ({ item }: Props) => {
   const { cart } = useProductsState();
-  const dispatch = useProductsDispatch();
-
-  const putItem = (item: Item) => {
-    dispatch({ type: "PUT_ITEM", item });
-  };
-  const takeOutItem = (id: string) => {
-    dispatch({ type: "TAKEOUT_ITEM", id });
-  };
+  const { putCart, takeOutCart } = useProductsDispatch();
 
   console.log("프로덕트 렌더링 확인");
   return (
@@ -30,9 +23,9 @@ const Product = ({ item }: Props) => {
           //TODO: 이 부분 클릭시 매번 반복을 돌기 때문에 시간복잡도를 줄일 수 있는 방법 모색해보기 , 하지만 현시점에서는 장바구니 수량이 3개로 제한되어 있어 당장 중요하진 않음!
 
           if (cart.length < 3) {
-            cart.find(el => el.id === item.id) ? takeOutItem(item.id) : putItem(item);
+            cart.find(el => el.id === item.id) ? takeOutCart(item.id) : putCart(item);
           } else {
-            cart.find(el => el.id === item.id) ? takeOutItem(item.id) : alert("장바구니는 3개까지 추가 가능합니다");
+            cart.find(el => el.id === item.id) ? takeOutCart(item.id) : alert("장바구니는 3개까지 추가 가능합니다");
           }
         }}
       />
