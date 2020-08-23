@@ -15,6 +15,7 @@ export const ProductsContextProvider = ({ children }: { children: React.ReactNod
     cart: [],
     coupons: coupons,
   });
+
   return (
     <ProductsDispatchContext.Provider value={dispatch}>
       <ProductsStateContext.Provider value={products}>{children}</ProductsStateContext.Provider>
@@ -30,7 +31,6 @@ export const useProductsState = () => {
 
 export const useProductsDispatch = () => {
   const dispatch = useContext(ProductsDispatchContext);
-
   if (!dispatch) throw new Error("ProductsProvider not found!");
 
   const putCart = useCallback(
@@ -39,7 +39,6 @@ export const useProductsDispatch = () => {
     },
     [dispatch]
   );
-
   const takeOutCart = useCallback(
     (id: string) => {
       dispatch({ type: "TAKEOUT_ITEM", id });

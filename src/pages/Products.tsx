@@ -38,6 +38,9 @@ const Products = () => {
     console.log("정렬 함수 실행");
   }, [orderBy, items]);
 
+  useEffect(onOrderBy, [orderBy]);
+  useEffect(onPagination, [currentPage, items]);
+
   const onPageSelect = (index: number) => (index === currentPage ? true : false);
 
   const renderPageBtn = (items: Item[]) => {
@@ -54,9 +57,6 @@ const Products = () => {
 
     return pageBtns;
   };
-
-  useEffect(onOrderBy, [orderBy]);
-  useEffect(onPagination, [currentPage, items]);
 
   return (
     <Container>
