@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledHeader } from "../styles/headerStyle/userInfoItem";
-import UserInfo from "./userInfo";
+import { StyledHeader } from "../../styles/headerStyle/userInfoItem";
+import UserInfo from "../items/userInfo";
 
 const Header = () => {
   return (
