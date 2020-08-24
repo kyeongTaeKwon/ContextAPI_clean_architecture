@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Item } from "../model/index";
+import { Item } from "../../model/index";
 import {
   ProductBox,
   ProudctImgBox,
@@ -10,8 +10,8 @@ import {
   AddCartMotionDiv,
   LinkToCart,
   AddCartText,
-} from "../styles/productStyle/Item";
-import { makeCommaPrice } from "../util/makeComma";
+} from "../../styles/productStyle/Item";
+import { makeCommaPrice } from "../../util/makeComma";
 
 type Props = {
   item: Item;
@@ -41,9 +41,11 @@ const Product = ({ item, isInCart, onClick }: Props) => {
           {animation && <LinkToCart to={"/cart"}>장바구니로 가기</LinkToCart>}
         </AddCartMotionDiv>
       </ProudctImgBox>
-      <ProductTitle>{item.title}</ProductTitle>
-      <ProductPrice>{makeCommaPrice(item.price)}원</ProductPrice>
-      <AddCartBtn onClick={handleClick}>{isInCart ? "장바구니에서 빼기" : "장바구니에 담기"}</AddCartBtn>
+      <div>
+        <ProductTitle>{item.title}</ProductTitle>
+        <ProductPrice>{makeCommaPrice(item.price)}원</ProductPrice>
+        <AddCartBtn onClick={handleClick}>{isInCart ? "장바구니에서 빼기" : "장바구니에 담기"}</AddCartBtn>
+      </div>
     </ProductBox>
   );
 };

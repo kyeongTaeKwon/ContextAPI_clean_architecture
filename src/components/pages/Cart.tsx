@@ -1,19 +1,16 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { useProductsState } from "../../Hooks/useProducts";
-import ProductList from "../productList";
-
+import ProductList from "../sections/productList";
+import { Container } from "../../styles/CartStyle/CContainer";
 const Cart: React.FC = () => {
   const { cart } = useProductsState();
 
   const totalOrderAmount = useMemo<number>(() => cart.reduce((acc, cur) => (acc += cur.price), 0), [cart]);
 
   return (
-    <div>
-      <div>
-        <p>{totalOrderAmount}</p>
-      </div>
+    <Container>
       <ProductList items={cart} />
-    </div>
+    </Container>
   );
 };
 export default Cart;

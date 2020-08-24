@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
-import Product from "./product";
-import { Item } from "../model/index";
-import { ProductsListWrapper } from "../styles/productStyle/List";
-import { useProductsState, useProductsDispatch } from "../Hooks/useProducts";
+import Product from "../items/product";
+import { Item } from "../../model/index";
+import { ProductsListWrapper } from "../../styles/productStyle/List";
+import { useProductsState, useProductsDispatch } from "../../Hooks/useProducts";
 
 type Props = {
   items: Item[];

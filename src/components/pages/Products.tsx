@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Container } from "../../styles/productStyle/Container";
+import Header from "../sections/header";
 import { PageBtn } from "../../styles/productStyle/PageBtn";
 import { useProductsState } from "../../Hooks/useProducts";
 import { Item } from "../../model/index";
-import ProductsList from "../productList";
-import Header from "../header";
+import ProductsList from "../sections/productList";
 import _ from "lodash";
 
 const Products = () => {
@@ -59,10 +59,13 @@ const Products = () => {
   };
 
   return (
-    <Container>
-      <ProductsList items={currentItems} />
-      {renderPageBtn(items)}
-    </Container>
+    <React.Fragment>
+      <Header />
+      <Container>
+        <ProductsList items={currentItems} />
+        {renderPageBtn(items)}
+      </Container>
+    </React.Fragment>
   );
 };
 

@@ -11,6 +11,8 @@ const GlobalStyle = createGlobalStyle`
 
     html,body
     {
+        margin:0;
+        padding:0;
         @import url('https://fonts.googleapis.com/earlyaccess/notosanskr.css');
         font-family: "Noto Sans KR", sans-serif ;
         background-color:${props => props.theme.colors.background};
