@@ -1,4 +1,4 @@
-import { Item, Coupon } from "../core/data";
+import { Item, Coupon } from "../../model/index";
 
 export type ProductsState = {
   items: Item[];
