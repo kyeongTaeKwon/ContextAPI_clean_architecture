@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Container } from "../styles/productStyle/Container";
-import { PageBtn } from "../styles/productStyle/PageBtn";
-import { useProductsState } from "../contexts/ProductsContext";
-import { Item } from "../core/data";
-import ProductsList from "../components/productList";
-import UserInfo from "../components/userInfo";
+import { Container } from "../../styles/productStyle/Container";
+import { PageBtn } from "../../styles/productStyle/PageBtn";
+import { useProductsState } from "../../Hooks/useProducts";
+import { Item } from "../../model/index";
+import ProductsList from "../productList";
+import UserInfo from "../userInfo";
 import _ from "lodash";
 
 const Products = () => {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Item } from "../core/data";
+import { Item } from "../model/index";
 import {
   ProductBox,
   ProudctImgBox,
@@ -11,7 +11,7 @@ import {
   LinkToCart,
   AddCartText,
 } from "../styles/productStyle/Item";
-import { makeCommaPrice } from "../core/util/makeComma";
+import { makeCommaPrice } from "../util/makeComma";
 
 type Props = {
   item: Item;
@@ -21,6 +21,7 @@ type Props = {
 
 const Product = ({ item, isInCart, onClick }: Props) => {
   const [animation, setAnimation] = useState<boolean>(false);
+
   const handleClick = () => {
     const cartLength = onClick(isInCart, item);
     if (!isInCart && cartLength < 3) {
@@ -37,7 +38,7 @@ const Product = ({ item, isInCart, onClick }: Props) => {
         <ProductImg src={item.coverImage} alt={item.title} />
         <AddCartMotionDiv animate={animation ? "visible" : "hidden"}>
           <AddCartText>장바구니에 담겼습니다.</AddCartText>
-          <LinkToCart to={"/cart"}>장바구니로 가기</LinkToCart>
+          {animation && <LinkToCart to={"/cart"}>장바구니로 가기</LinkToCart>}
         </AddCartMotionDiv>
       </ProudctImgBox>
       <ProductTitle>{item.title}</ProductTitle>
