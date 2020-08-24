@@ -16,7 +16,7 @@ const animation = {
 };
 export const ProductBox = styled.div`
   /* flex: auto; */
-  margin-right: 2rem;
+  margin-right: 5rem;
   margin-bottom: 6rem;
   height: 30rem;
 `;

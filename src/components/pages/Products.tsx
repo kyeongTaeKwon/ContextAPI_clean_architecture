@@ -4,7 +4,7 @@ import { PageBtn } from "../../styles/productStyle/PageBtn";
 import { useProductsState } from "../../Hooks/useProducts";
 import { Item } from "../../model/index";
 import ProductsList from "../productList";
-import UserInfo from "../userInfo";
+import Header from "../header";
 import _ from "lodash";
 
 const Products = () => {
@@ -60,7 +60,6 @@ const Products = () => {
 
   return (
     <Container>
-      <UserInfo />
       <ProductsList items={currentItems} />
       {renderPageBtn(items)}
     </Container>
