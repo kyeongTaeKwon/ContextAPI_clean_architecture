@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Item } from "../../model/index";
 import {
   ProductBox,
@@ -21,16 +21,17 @@ type Props = {
 
 const Product = ({ item, isInCart, onClick }: Props) => {
   const [animation, setAnimation] = useState<boolean>(false);
-
   const handleClick = () => {
     const cartLength = onClick(isInCart, item);
     if (!isInCart && cartLength < 3) {
       setAnimation(true);
-      setTimeout(() => {
-        setAnimation(false);
-      }, 4000);
     }
   };
+
+  useEffect(() => {
+    const timeOut = setTimeout(() => setAnimation(false), 4000);
+    return () => clearTimeout(timeOut);
+  }, [animation]);
 
   return (
     <ProductBox>
