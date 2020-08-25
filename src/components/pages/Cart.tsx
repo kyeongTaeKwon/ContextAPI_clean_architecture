@@ -1,16 +1,21 @@
-import React, { useMemo, useState } from "react";
-import { useProductsState } from "../../Hooks/useProducts";
-import ProductList from "../sections/productList";
+import React from "react";
+import CartList from "../sections/cartList";
+import AmountSection from "../sections/amountSection";
+import { Item } from "../../model/index";
 import { Container } from "../../styles/CartStyle/CContainer";
+import { ProductsContextProvider } from "../../contexts/PaymentListContext";
+interface PaymentItem extends Item {
+  amount?: number;
+}
+
 const Cart: React.FC = () => {
-  const { cart } = useProductsState();
-
-  const totalOrderAmount = useMemo<number>(() => cart.reduce((acc, cur) => (acc += cur.price), 0), [cart]);
-
   return (
-    <Container>
-      <ProductList items={cart} />
-    </Container>
+    <ProductsContextProvider>
+      <Container>
+        <CartList />
+        <AmountSection />
+      </Container>
+    </ProductsContextProvider>
   );
 };
 export default Cart;
