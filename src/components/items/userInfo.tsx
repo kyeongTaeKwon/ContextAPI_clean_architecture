@@ -1,6 +1,6 @@
 import React from "react";
 import { useProductsState } from "../../Hooks/useProducts";
-import { UserInfoBox, UserInfoText, CartLink } from "../../styles/headerStyle/userInfoItem";
+import { UserInfoBox, UserInfoText, CartLink } from "../../styles/headerStyle/$userInfoItem";
 const UserInfo = () => {
   const { coupons, cart } = useProductsState();
   return (

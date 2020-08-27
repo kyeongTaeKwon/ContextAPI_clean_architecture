@@ -1,5 +1,5 @@
 import styled, { ThemeProps } from "styled-components";
-import { ProductTitle, ProductPrice } from "../productStyle/Item";
+import { ProductTitle, ProductPrice } from "../productStyle/$Product";
 
 interface Props extends ThemeProps<Props> {
   isSeleted: boolean;

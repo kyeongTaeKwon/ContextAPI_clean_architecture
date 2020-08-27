@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Container } from "../../styles/productStyle/Container";
+import { Container } from "../../styles/productStyle/$Container";
 import Header from "../sections/header";
-import { PageBtn } from "../../styles/productStyle/PageBtn";
+import { PageBtn } from "../../styles/productStyle/$PageBtn";
 import { useProductsState } from "../../Hooks/useProducts";
 import { Item } from "../../model/index";
 import ProductsList from "../sections/productList";
@@ -25,7 +25,6 @@ const Products = () => {
   const onPagination = () => {
     const startIndex = (currentPage - 1) * pageSize;
     const result = _.slice(items, startIndex, startIndex + pageSize);
-    console.log("페이지네이션 함수 실행");
     setCurrentItems(result);
   };
 
@@ -35,7 +34,6 @@ const Products = () => {
       orderBy === "desc" ? [...items].sort((a, b) => b.score - a.score) : [...items].sort((a, b) => a.score - b.score);
 
     setItems(result);
-    console.log("정렬 함수 실행");
   }, [orderBy, items]);
 
   useEffect(onOrderBy, [orderBy]);

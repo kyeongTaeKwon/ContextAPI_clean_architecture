@@ -10,7 +10,7 @@ import {
   AddCartMotionDiv,
   LinkToCart,
   AddCartText,
-} from "../../styles/productStyle/Item";
+} from "../../styles/productStyle/$Product";
 import { makeCommaPrice } from "../../util/makeComma";
 
 type Props = {
