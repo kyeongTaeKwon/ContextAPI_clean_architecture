@@ -4,17 +4,17 @@ import { makeCommaPrice } from "../../util/makeComma";
 import { useProductsDispatch } from "../../Hooks/useProducts";
 import { usePayments } from "../../Hooks/usePayments";
 import {
-  CProductBox,
-  CProductImg,
-  CSelectBtn,
-  CProductInfoBox,
-  CProductTitle,
-  CProductPrice,
-  CAmountBox,
-  CAmountText,
-  CHandleAmountBtn,
-  CSumText,
-  CDeleteBtn,
+  StyledProductBox,
+  StyledProductImg,
+  StyledSelectBtn,
+  StyledProductInfoBox,
+  StyledCProductTitle,
+  StyledCProductPrice,
+  StyledAmountBox,
+  StyledAmountText,
+  StyledHandleAmountBtn,
+  StyledSumText,
+  StyledDeleteBtn,
 } from "../../styles/CartStyle/$CartProduct";
 
 type Props = {
@@ -25,41 +25,41 @@ const CartProduct = ({ item }: Props) => {
   const { plusAmount, minusAmount, handleSelect } = usePayments();
 
   return (
-    <CProductBox>
-      <CSelectBtn onClick={() => handleSelect(item.id)} isSeleted={item.isSelected} />
-      <CProductImg src={item.coverImage} alt={item.title} />
-      <CProductInfoBox>
-        <CProductTitle>{item.title}</CProductTitle>
-        <CProductPrice>{makeCommaPrice(item.price)}</CProductPrice>
-        <CAmountBox>
-          <CAmountText>수량</CAmountText>
-          <CAmountText>{`${item.amount}개`}</CAmountText>
-          <CHandleAmountBtn
+    <StyledProductBox>
+      <StyledSelectBtn onClick={() => handleSelect(item.id)} isSeleted={item.isSelected} />
+      <StyledProductImg src={item.coverImage} alt={item.title} />
+      <StyledProductInfoBox>
+        <StyledCProductTitle>{item.title}</StyledCProductTitle>
+        <StyledCProductPrice>{makeCommaPrice(item.price)}</StyledCProductPrice>
+        <StyledAmountBox>
+          <StyledAmountText>수량</StyledAmountText>
+          <StyledAmountText>{`${item.amount}개`}</StyledAmountText>
+          <StyledHandleAmountBtn
             onClick={() => {
               plusAmount(item);
             }}
           >
             +
-          </CHandleAmountBtn>
-          <CHandleAmountBtn
+          </StyledHandleAmountBtn>
+          <StyledHandleAmountBtn
             onClick={() => {
               minusAmount(item);
             }}
           >
             -
-          </CHandleAmountBtn>
-        </CAmountBox>
-      </CProductInfoBox>
+          </StyledHandleAmountBtn>
+        </StyledAmountBox>
+      </StyledProductInfoBox>
 
-      <CSumText>{makeCommaPrice(item.amount * item.price)}</CSumText>
-      <CDeleteBtn
+      <StyledSumText>{makeCommaPrice(item.amount * item.price)}</StyledSumText>
+      <StyledDeleteBtn
         onClick={() => {
           takeOutCart(item.id);
         }}
       >
         삭제
-      </CDeleteBtn>
-    </CProductBox>
+      </StyledDeleteBtn>
+    </StyledProductBox>
   );
 };
 

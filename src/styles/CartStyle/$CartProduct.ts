@@ -4,20 +4,20 @@ import { StyledProductTitle, StyledProductPrice } from "../productStyle/$Product
 interface Props extends ThemeProps<Props> {
   isSeleted: boolean;
 }
-export const CProductBox = styled.div`
+export const StyledProductBox = styled.div`
   display: flex;
   height: 8.4rem;
   margin-bottom: 4rem;
 `;
 
-export const CProductImg = styled.img`
+export const StyledProductImg = styled.img`
   width: 15rem;
   height: 8.4rem;
   margin-right: 1.6rem;
   border-radius: 4px;
 `;
 
-export const CSelectBtn = styled.button`
+export const StyledSelectBtn = styled.button`
   background: ${props => (props.isSeleted ? props.theme.colors.primary : "none")};
   border-radius: 1.6rem;
   width: 1.6rem;
@@ -29,25 +29,25 @@ export const CSelectBtn = styled.button`
   cursor: pointer;
 `;
 
-export const CProductInfoBox = styled.div`
+export const StyledProductInfoBox = styled.div`
   width: 36rem;
   height: 8.4rem;
   position: relative;
   margin-right: 3.2rem;
 `;
 
-export const CProductTitle = styled(StyledProductTitle)`
+export const StyledCProductTitle = styled(StyledProductTitle)`
   margin: 0rem;
   font-weight: normal;
   margin-bottom: 2rem;
 `;
 
-export const CProductPrice = styled(StyledProductPrice)`
+export const StyledCProductPrice = styled(StyledProductPrice)`
   margin: 0rem;
   font-size: 1.4rem;
 `;
 
-export const CAmountBox = styled.div`
+export const StyledAmountBox = styled.div`
   height: 3.2rem;
   position: absolute;
   display: flex;
@@ -56,7 +56,7 @@ export const CAmountBox = styled.div`
   /* background-color: black; */
 `;
 
-export const CAmountText = styled.p`
+export const StyledAmountText = styled.p`
   font-weight: bold;
   font-size: 1.5rem;
   width: 3rem;
@@ -64,7 +64,7 @@ export const CAmountText = styled.p`
   margin: 0.8rem 1.2rem;
 `;
 
-export const CHandleAmountBtn = styled.button`
+export const StyledHandleAmountBtn = styled.button`
   background: none;
   /* background-color: red; */
   border: none;
@@ -76,14 +76,14 @@ export const CHandleAmountBtn = styled.button`
   margin: 0rem;
   cursor: pointer;
 `;
-export const CSumText = styled.p`
+export const StyledSumText = styled.p`
   align-self: center;
   font-size: 1.7rem;
   font-weight: bold;
   margin-right: 1.2rem;
 `;
 
-export const CDeleteBtn = styled.button`
+export const StyledDeleteBtn = styled.button`
   background: none;
   align-self: center;
   outline: none;
