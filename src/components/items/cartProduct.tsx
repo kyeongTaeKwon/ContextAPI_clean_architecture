@@ -30,7 +30,9 @@ const CartProduct = ({ item }: Props) => {
       <StyledProductImg src={item.coverImage} alt={item.title} />
       <StyledProductInfoBox>
         <StyledCProductTitle>{item.title}</StyledCProductTitle>
-        <StyledCProductPrice>{makeCommaPrice(item.price)}</StyledCProductPrice>
+        <StyledCProductPrice>
+          {`${makeCommaPrice(item.price)} ${item.availableCoupon === false ? "[쿠폰 적용 불가]" : ""}`}
+        </StyledCProductPrice>
         <StyledAmountBox>
           <StyledAmountText>수량</StyledAmountText>
           <StyledAmountText>{`${item.amount}개`}</StyledAmountText>
