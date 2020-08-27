@@ -5,7 +5,6 @@ import { StyledPageBtn } from "../../styles/productStyle/$PageBtn";
 import { useProducts } from "../../Hooks/useProducts";
 import { Item } from "../../model/index";
 import ProductsList from "../sections/productList";
-import _ from "lodash";
 
 const Products = () => {
   const { items: products } = useProducts();
@@ -19,12 +18,11 @@ const Products = () => {
 
   const onPagination = () => {
     const startIndex = (currentPage - 1) * pageSize;
-    const result = _.slice(items, startIndex, startIndex + pageSize);
+    const result = items.slice(startIndex, startIndex + pageSize);
     setCurrentItems(result);
   };
 
   const onOrderBy = useCallback(() => {
-    //! 상태 불변성을 위해 concat 메소드 추가
     let result =
       orderBy === "desc" ? [...items].sort((a, b) => b.score - a.score) : [...items].sort((a, b) => a.score - b.score);
 
