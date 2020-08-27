@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledAmountSection = styled.div`
+export const StyledAmountSection = styled.section`
   position: relative;
   height: 20rem;
   max-width: 68rem;
@@ -53,6 +53,14 @@ export const StyledAmountText = styled.h2`
   }
 `;
 
+export const StyledApplyCouponBox = styled.div`
+  height: 10rem;
+`;
+export const StyledAplliedCouponText = styled.h2`
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0 0.4rem;
+`;
 export const StyledAddCouponBtn = styled.button`
   height: 2rem;
   align-self: flex-end;
