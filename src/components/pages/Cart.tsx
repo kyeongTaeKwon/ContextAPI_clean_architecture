@@ -4,7 +4,7 @@ import AmountSection from "../sections/amountSection";
 import { Item } from "../../model/index";
 import { Container, CartHeader, HeaderText } from "../../styles/CartStyle/$Container";
 import { PaymentsContextProvider } from "../../contexts/PaymentsContext";
-import CouponModal from "../sections/couponModal";
+import CouponModal from "../sections/couponApplyModal";
 interface PaymentItem extends Item {
   amount?: number;
 }
