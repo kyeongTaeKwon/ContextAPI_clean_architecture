@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Container } from "../../styles/productStyle/$Container";
+import { StyledContainer } from "../../styles/productStyle/$Container";
 import Header from "../sections/header";
-import { PageBtn } from "../../styles/productStyle/$PageBtn";
+import { StyledPageBtn } from "../../styles/productStyle/$PageBtn";
 import { useProductsState } from "../../Hooks/useProducts";
 import { Item } from "../../model/index";
 import ProductsList from "../sections/productList";
@@ -47,9 +47,9 @@ const Products = () => {
 
     for (let index = 1; index <= pageCount; index++) {
       pageBtns.push(
-        <PageBtn isSelected={onPageSelect(index)} onClick={() => setPage(index)} key={`pageBtn${index}`}>
+        <StyledPageBtn isSelected={onPageSelect(index)} onClick={() => setPage(index)} key={`pageBtn${index}`}>
           {index}
-        </PageBtn>
+        </StyledPageBtn>
       );
     }
 
@@ -59,10 +59,10 @@ const Products = () => {
   return (
     <React.Fragment>
       <Header />
-      <Container>
+      <StyledContainer>
         <ProductsList items={currentItems} />
         {renderPageBtn(items)}
-      </Container>
+      </StyledContainer>
     </React.Fragment>
   );
 };

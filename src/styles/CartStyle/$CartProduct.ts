@@ -1,5 +1,5 @@
 import styled, { ThemeProps } from "styled-components";
-import { ProductTitle, ProductPrice } from "../productStyle/$Product";
+import { StyledProductTitle, StyledProductPrice } from "../productStyle/$Product";
 
 interface Props extends ThemeProps<Props> {
   isSeleted: boolean;
@@ -36,13 +36,13 @@ export const CProductInfoBox = styled.div`
   margin-right: 3.2rem;
 `;
 
-export const CProductTitle = styled(ProductTitle)`
+export const CProductTitle = styled(StyledProductTitle)`
   margin: 0rem;
   font-weight: normal;
   margin-bottom: 2rem;
 `;
 
-export const CProductPrice = styled(ProductPrice)`
+export const CProductPrice = styled(StyledProductPrice)`
   margin: 0rem;
   font-size: 1.4rem;
 `;

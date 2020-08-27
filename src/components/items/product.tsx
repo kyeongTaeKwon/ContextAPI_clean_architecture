@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Item } from "../../model/index";
 import {
-  ProductBox,
-  ProudctImgBox,
-  ProductImg,
-  ProductPrice,
-  ProductTitle,
-  AddCartBtn,
-  AddCartMotionDiv,
-  LinkToCart,
-  AddCartText,
+  StyledProductBox,
+  StyledProudctImgBox,
+  StyledProductImg,
+  StyledProductPrice,
+  StyledProductTitle,
+  StyledAddCartBtn,
+  StyledAddCartMotionDiv,
+  StyledLinkToCart,
+  StyledAddCartText,
 } from "../../styles/productStyle/$Product";
 import { makeCommaPrice } from "../../util/makeComma";
 
@@ -34,20 +34,20 @@ const Product = ({ item, isInCart, onClick }: Props) => {
   }, [animation]);
 
   return (
-    <ProductBox>
-      <ProudctImgBox>
-        <ProductImg src={item.coverImage} alt={item.title} />
-        <AddCartMotionDiv animate={animation ? "visible" : "hidden"}>
-          <AddCartText>장바구니에 담겼습니다.</AddCartText>
-          {animation && <LinkToCart to={"/cart"}>장바구니로 가기</LinkToCart>}
-        </AddCartMotionDiv>
-      </ProudctImgBox>
+    <StyledProductBox>
+      <StyledProudctImgBox>
+        <StyledProductImg src={item.coverImage} alt={item.title} />
+        <StyledAddCartMotionDiv animate={animation ? "visible" : "hidden"}>
+          <StyledAddCartText>장바구니에 담겼습니다.</StyledAddCartText>
+          {animation && <StyledLinkToCart to={"/cart"}>장바구니로 가기</StyledLinkToCart>}
+        </StyledAddCartMotionDiv>
+      </StyledProudctImgBox>
       <div>
-        <ProductTitle>{item.title}</ProductTitle>
-        <ProductPrice>{makeCommaPrice(item.price)}원</ProductPrice>
-        <AddCartBtn onClick={handleClick}>{isInCart ? "장바구니에서 빼기" : "장바구니에 담기"}</AddCartBtn>
+        <StyledProductTitle>{item.title}</StyledProductTitle>
+        <StyledProductPrice>{makeCommaPrice(item.price)}원</StyledProductPrice>
+        <StyledAddCartBtn onClick={handleClick}>{isInCart ? "장바구니에서 빼기" : "장바구니에 담기"}</StyledAddCartBtn>
       </div>
-    </ProductBox>
+    </StyledProductBox>
   );
 };
 

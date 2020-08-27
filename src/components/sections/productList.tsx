@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import Product from "../items/product";
 import { Item } from "../../model/index";
-import { ProductsListWrapper } from "../../styles/productStyle/$ProductList";
+import { StyledProductsListWrapper } from "../../styles/productStyle/$ProductList";
 import { useProductsState, useProductsDispatch } from "../../Hooks/useProducts";
 
 type Props = {
@@ -30,7 +30,7 @@ const ProductList = ({ items }: Props) => {
     return items.map(item => <Product item={item} key={item.id} isInCart={isInCart(item)} onClick={_onClick} />);
   };
 
-  return <ProductsListWrapper>{renderProductList(items)}</ProductsListWrapper>;
+  return <StyledProductsListWrapper>{renderProductList(items)}</StyledProductsListWrapper>;
 };
 
 export default React.memo(ProductList);

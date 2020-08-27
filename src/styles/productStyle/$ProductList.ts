@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProductsListWrapper = styled.section`
+export const StyledProductsListWrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
   /* width: 120rem; */

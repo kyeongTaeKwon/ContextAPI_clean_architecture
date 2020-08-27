@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
   margin-bottom: 2rem;
   /* background: yellow; */
 `;
-export const UserInfoBox = styled.div`
+export const StyledUserInfoBox = styled.div`
   width: 20rem;
   position: relative;
   right: 0rem;
@@ -18,14 +18,14 @@ export const UserInfoBox = styled.div`
   float: right;
 `;
 
-export const UserInfoText = styled.p`
+export const StyledUserInfoText = styled.p`
   font-weight: bold;
   font-size: 1.5rem;
   text-align: right;
   margin: 1.6rem 2rem 0 0;
 `;
 
-export const CartLink = styled(Link)`
+export const StyledCartLink = styled(Link)`
   font-weight: bold;
   font-size: 1.5rem;
   color: white;
