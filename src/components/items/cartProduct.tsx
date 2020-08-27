@@ -2,7 +2,7 @@ import React from "react";
 import { PaymentItem } from "../../model/index";
 import { makeCommaPrice } from "../../util/makeComma";
 import { useProductsDispatch } from "../../Hooks/useProducts";
-import { usePayments } from "../../Hooks/usePaymentList";
+import { usePayments } from "../../Hooks/usePayments";
 import {
   CProductBox,
   CProductImg,
