@@ -1,5 +1,5 @@
 import React, { createContext, Dispatch, useReducer } from "react";
-import { PaymentsState, PaymentsReducer, Action } from "./reducers/PaymentListReducer";
+import { PaymentsState, PaymentsReducer, Action } from "./reducers/PaymentsReducer";
 import { useProducts } from "../Hooks/useProducts";
 type PaymentsDispatch = Dispatch<Action>;
 
