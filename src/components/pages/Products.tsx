@@ -50,13 +50,13 @@ const Products = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Header />
       <StyledContainer>
         <ProductsList items={currentItems} />
         {renderPageBtn(items)}
       </StyledContainer>
-    </React.Fragment>
+    </>
   );
 };
 

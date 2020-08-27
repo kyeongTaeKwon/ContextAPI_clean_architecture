@@ -32,13 +32,18 @@ export const usePayments = () => {
   }, [cart]);
 
   const calculationAmount = (payments: PaymentItem[], coupon?: Coupon) => {
+    // 할인 금액 초기화
     setDiscountPrice(0);
+
+    //정액 할인인지 비율 할인인지 구분해서 값 할당
     const discountPercentage = coupon && coupon.discountRate ? (100 - coupon.discountRate) / 100 : 1;
     const discountAmount = coupon && coupon.discountAmount ? coupon.discountAmount : 0;
 
+    //할인 가격,할인 가능한 제품 수 변수
     let discountPriceSum = 0;
     let availableCouponItems = 0;
 
+    //결제 금액 계산하면서 할인 쿠폰이 있다면 할인가를 상품마다 적용 + 할인 적용 되는 상품 갯수까지 카운트
     const price = payments.reduce((acc, cur) => {
       const amount = cur.amount ? cur.amount : 1;
       if (cur.isSelected) {
@@ -49,9 +54,11 @@ export const usePayments = () => {
       return acc;
     }, 0);
 
+    //할인 타입에 따라 할인 금액 할당
     if (discountAmount !== 0 && availableCouponItems !== 0) setDiscountPrice(discountAmount);
     if (discountPercentage !== 1 && availableCouponItems !== 0) setDiscountPrice(discountPriceSum);
 
+    //체크된 제품이 할인 불가 제품 밖에 없다면 정액 할인은 적용 안되도록
     return availableCouponItems === 0 ? price : price - discountAmount;
 
     //! 함수가 너무 커져서 분리 하기
