@@ -2,15 +2,14 @@ import React, { useCallback } from "react";
 import Product from "../items/product";
 import { Item } from "../../model/index";
 import { StyledProductsListWrapper } from "../../styles/productStyle/$ProductList";
-import { useProductsState, useProductsDispatch } from "../../Hooks/useProducts";
+import { useProducts } from "../../Hooks/useProducts";
 
 type Props = {
   items: Item[];
 };
 
 const ProductList = ({ items }: Props) => {
-  const { cart } = useProductsState();
-  const { putCart, takeOutCart } = useProductsDispatch();
+  const { cart, putCart, takeOutCart } = useProducts();
 
   const _onClick = useCallback(
     (isInCart: boolean, item: Item) => {

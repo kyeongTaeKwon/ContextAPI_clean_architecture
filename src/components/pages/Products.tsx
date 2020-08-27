@@ -2,13 +2,13 @@ import React, { useState, useEffect, useCallback } from "react";
 import { StyledContainer } from "../../styles/productStyle/$Container";
 import Header from "../sections/header";
 import { StyledPageBtn } from "../../styles/productStyle/$PageBtn";
-import { useProductsState } from "../../Hooks/useProducts";
+import { useProducts } from "../../Hooks/useProducts";
 import { Item } from "../../model/index";
 import ProductsList from "../sections/productList";
 import _ from "lodash";
 
 const Products = () => {
-  const { items: products } = useProductsState();
+  const { items: products } = useProducts();
 
   const [items, setItems] = useState<Item[]>(products);
   const [currentPage, setPage] = useState<number>(1);

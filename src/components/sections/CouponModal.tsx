@@ -1,6 +1,6 @@
 import React from "react";
 import { Coupon } from "../../model/index";
-import { useProductsState } from "../../Hooks/useProducts";
+import { useProducts } from "../../Hooks/useProducts";
 import { usePayments } from "../../Hooks/usePayments";
 import CouponItem from "../items/couponItem";
 import {
@@ -16,7 +16,7 @@ type Props = {
 };
 
 const Modal = ({ visible, closeModal }: Props) => {
-  const { coupons } = useProductsState();
+  const { coupons } = useProducts();
   const { applyCoupon } = usePayments();
 
   const onMaskClick = (e: React.MouseEvent) => {

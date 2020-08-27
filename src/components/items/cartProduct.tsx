@@ -1,7 +1,7 @@
 import React from "react";
 import { PaymentItem } from "../../model/index";
 import { makeCommaPrice } from "../../util/makeComma";
-import { useProductsDispatch } from "../../Hooks/useProducts";
+import { useProducts } from "../../Hooks/useProducts";
 import { usePayments } from "../../Hooks/usePayments";
 import {
   StyledProductBox,
@@ -21,7 +21,7 @@ type Props = {
   item: PaymentItem;
 };
 const CartProduct = ({ item }: Props) => {
-  const { takeOutCart } = useProductsDispatch();
+  const { takeOutCart } = useProducts();
   const { plusAmount, minusAmount, handleSelect } = usePayments();
 
   return (

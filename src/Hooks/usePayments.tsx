@@ -1,14 +1,14 @@
 import { useMemo, useEffect, useCallback, useContext, useState } from "react";
 import { PaymentItem, Coupon } from "../model/index";
 import { PaymentsDispatchContext, PaymentsStateContext } from "../contexts/PaymentsContext";
-import { useProductsState } from "./useProducts";
+import { useProducts } from "./useProducts";
 
 export const usePayments = () => {
   const dispatch = useContext(PaymentsDispatchContext);
   const state = useContext(PaymentsStateContext);
   const [discountPrice, setDiscountPrice] = useState<number>(0);
 
-  const { cart } = useProductsState();
+  const { cart } = useProducts();
 
   if (!dispatch) throw new Error("ProductsProvider not found!");
   if (!state) throw new Error("ProductsProvider not found!");
