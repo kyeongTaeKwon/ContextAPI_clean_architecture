@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import CartList from "../sections/cartList";
 import AmountSection from "../sections/amountSection";
 import { Item } from "../../model/index";
-import { Container, CartHeader, HeaderText } from "../../styles/CartStyle/CContainer";
+import { Container, CartHeader, HeaderText } from "../../styles/CartStyle/$Container";
 import { PaymentsContextProvider } from "../../contexts/PaymentListContext";
-import Modal from "../sections/CouponModal";
+import CouponModal from "../sections/couponModal";
 interface PaymentItem extends Item {
   amount?: number;
 }
@@ -12,10 +12,10 @@ interface PaymentItem extends Item {
 const Cart: React.FC = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
-  const handleOpenModal = () => {
+  const openModal = () => {
     setModalVisible(true);
   };
-  const handleCloseModal = () => {
+  const closeModal = () => {
     setModalVisible(false);
   };
 
@@ -26,11 +26,9 @@ const Cart: React.FC = () => {
           <HeaderText>주문하기</HeaderText>
         </CartHeader>
         <CartList />
-        <AmountSection openModal={handleOpenModal} closeModal={handleCloseModal} />
+        <AmountSection openModal={openModal} closeModal={closeModal} />
       </Container>
-      <Modal visible={modalVisible} closeModal={handleCloseModal}>
-        hi
-      </Modal>
+      {modalVisible && <CouponModal visible={modalVisible} closeModal={closeModal} />}
     </PaymentsContextProvider>
   );
 };
