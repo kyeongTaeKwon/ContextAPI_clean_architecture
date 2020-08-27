@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { ThemeProps } from "styled-components";
 
-interface StateProps {
+interface StateProps extends ThemeProps<StateProps> {
   isSelected?: boolean;
 }
 
@@ -14,17 +14,17 @@ export const StyledPageBtn = styled.button<StateProps>`
   outline: none;
   margin-right: 1.2rem;
 
-  cursor: ${(props: any) => {
+  cursor: ${props => {
     const { isSelected } = props;
     return isSelected ? "default" : "pointer";
   }};
 
-  background-color: ${(props: any) => {
+  background-color: ${props => {
     const { isSelected, theme } = props;
     return isSelected ? theme.colors.primary : "transparent";
   }};
 
-  border: ${(props: any) => {
+  border: ${props => {
     const { isSelected, theme } = props;
     return isSelected ? `0px solid` : `2px solid ${theme.colors.primary}`;
   }};

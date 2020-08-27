@@ -45,7 +45,9 @@ const Product = ({ item, isInCart, onClick }: Props) => {
       <div>
         <StyledProductTitle>{item.title}</StyledProductTitle>
         <StyledProductPrice>{makeCommaPrice(item.price)}원</StyledProductPrice>
-        <StyledAddCartBtn onClick={handleClick}>{isInCart ? "장바구니에서 빼기" : "장바구니에 담기"}</StyledAddCartBtn>
+        <StyledAddCartBtn onClick={handleClick} isInCart={isInCart}>
+          {isInCart ? "장바구니에서 빼기" : "장바구니에 담기"}
+        </StyledAddCartBtn>
       </div>
     </StyledProductBox>
   );

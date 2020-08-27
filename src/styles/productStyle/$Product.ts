@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { ThemeProps } from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
+interface StateProps extends ThemeProps<StateProps> {
+  isInCart?: boolean;
+}
 
 const animation = {
   hidden: {
@@ -47,13 +51,13 @@ export const StyledProductPrice = styled.h3`
   font-weight: bold;
 `;
 
-export const StyledAddCartBtn = styled.button`
+export const StyledAddCartBtn = styled.button<StateProps>`
   background-color: transparent;
   right: 0rem;
   padding: 0px;
   outline: none;
   border: 0px;
-  color: ${props => props.theme.colors.primary};
+  color: ${props => (props.isInCart ? "#fff" : props.theme.colors.primary)};
   font-size: 1.3rem;
   font-weight: bold;
   text-align: left;
