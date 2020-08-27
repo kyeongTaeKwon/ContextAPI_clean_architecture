@@ -1,8 +1,8 @@
 import React from "react";
-import { useProductsState } from "../../Hooks/useProducts";
+import { useProducts } from "../../Hooks/useProducts";
 import { StyledUserInfoBox, StyledUserInfoText, StyledCartLink } from "../../styles/headerStyle/$userInfoItem";
 const UserInfo = () => {
-  const { coupons, cart } = useProductsState();
+  const { coupons, cart } = useProducts();
   return (
     <StyledUserInfoBox>
       <StyledUserInfoText>{`쿠폰 ${coupons.length}개`}</StyledUserInfoText>

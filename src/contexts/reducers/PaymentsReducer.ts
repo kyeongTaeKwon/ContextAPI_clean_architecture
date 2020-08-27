@@ -20,7 +20,7 @@ export const PaymentsReducer = (state: PaymentsState, action: Action): PaymentsS
       const { id } = action.item;
       const currentPaymentList = state.paymentList.map(item => {
         if (item.id === id) {
-          const amount = item.amount ? item.amount + 1 : 2;
+          const amount = item.amount + 1;
           return { ...item, amount };
         }
         return item;
@@ -31,7 +31,7 @@ export const PaymentsReducer = (state: PaymentsState, action: Action): PaymentsS
       const { id } = action.item;
       const currentPaymentList = state.paymentList.map(item => {
         if (item.id === id) {
-          const amount = !item.amount || item.amount === 1 ? 1 : item.amount - 1;
+          const amount = item.amount === 1 ? 1 : item.amount - 1;
           return { ...item, amount };
         }
         return item;

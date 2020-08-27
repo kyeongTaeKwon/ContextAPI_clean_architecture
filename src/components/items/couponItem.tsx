@@ -15,4 +15,4 @@ const CouponItem = ({ coupon, onClick }: Props) => {
   );
 };
 
-export default CouponItem;
+export default React.memo(CouponItem);

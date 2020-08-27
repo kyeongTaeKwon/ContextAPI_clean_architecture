@@ -2,15 +2,14 @@ import { useContext, useCallback } from "react";
 import { ProductsDispatchContext, ProductsStateContext } from "../contexts/ProductsContext";
 import { Item } from "../model/index";
 
-export const useProductsState = () => {
+export const useProducts = () => {
   const state = useContext(ProductsStateContext);
-  if (!state) throw new Error("ProductsProvider not found!");
-  return state;
-};
-
-export const useProductsDispatch = () => {
   const dispatch = useContext(ProductsDispatchContext);
+
   if (!dispatch) throw new Error("ProductsProvider not found!");
+  if (!state) throw new Error("ProductsProvider not found!");
+
+  const { cart, coupons, items } = state;
 
   const putCart = useCallback(
     (item: Item) => {
@@ -24,5 +23,5 @@ export const useProductsDispatch = () => {
     },
     [dispatch]
   );
-  return { putCart, takeOutCart };
+  return { cart, coupons, items, putCart, takeOutCart };
 };

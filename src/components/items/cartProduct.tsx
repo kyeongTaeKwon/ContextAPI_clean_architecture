@@ -1,7 +1,7 @@
 import React from "react";
 import { PaymentItem } from "../../model/index";
 import { makeCommaPrice } from "../../util/makeComma";
-import { useProductsDispatch } from "../../Hooks/useProducts";
+import { useProducts } from "../../Hooks/useProducts";
 import { usePayments } from "../../Hooks/usePayments";
 import {
   StyledProductBox,
@@ -21,7 +21,7 @@ type Props = {
   item: PaymentItem;
 };
 const CartProduct = ({ item }: Props) => {
-  const { takeOutCart } = useProductsDispatch();
+  const { takeOutCart } = useProducts();
   const { plusAmount, minusAmount, handleSelect } = usePayments();
 
   return (
@@ -30,7 +30,9 @@ const CartProduct = ({ item }: Props) => {
       <StyledProductImg src={item.coverImage} alt={item.title} />
       <StyledProductInfoBox>
         <StyledCProductTitle>{item.title}</StyledCProductTitle>
-        <StyledCProductPrice>{makeCommaPrice(item.price)}</StyledCProductPrice>
+        <StyledCProductPrice>
+          {`${makeCommaPrice(item.price)} ${item.availableCoupon === false ? "[쿠폰 적용 불가]" : ""}`}
+        </StyledCProductPrice>
         <StyledAmountBox>
           <StyledAmountText>수량</StyledAmountText>
           <StyledAmountText>{`${item.amount}개`}</StyledAmountText>
@@ -63,4 +65,4 @@ const CartProduct = ({ item }: Props) => {
   );
 };
 
-export default CartProduct;
+export default React.memo(CartProduct);

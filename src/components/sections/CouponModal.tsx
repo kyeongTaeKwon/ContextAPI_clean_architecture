@@ -1,6 +1,6 @@
 import React from "react";
 import { Coupon } from "../../model/index";
-import { useProductsState } from "../../Hooks/useProducts";
+import { useProducts } from "../../Hooks/useProducts";
 import { usePayments } from "../../Hooks/usePayments";
 import CouponItem from "../items/couponItem";
 import {
@@ -16,7 +16,7 @@ type Props = {
 };
 
 const Modal = ({ visible, closeModal }: Props) => {
-  const { coupons } = useProductsState();
+  const { coupons } = useProducts();
   const { applyCoupon } = usePayments();
 
   const onMaskClick = (e: React.MouseEvent) => {
@@ -29,19 +29,22 @@ const Modal = ({ visible, closeModal }: Props) => {
     applyCoupon(coupon);
     closeModal();
   };
+
+  const renderCouponList = () => {
+    return coupons.map(coupon => <CouponItem coupon={coupon} onClick={onClick} key={coupon.title} />);
+  };
+
   return (
     <>
       <StyledModalOverlay visible={visible} />
       <StyledModalWrapper visible={visible} onClick={e => onMaskClick(e)}>
         <StyledModalInner>
           <StyledHeader>쿠폰을 선택해주세요</StyledHeader>
-          {coupons.map(coupon => (
-            <CouponItem coupon={coupon} onClick={onClick} key={coupon.title} />
-          ))}
+          {renderCouponList()}
         </StyledModalInner>
       </StyledModalWrapper>
     </>
   );
 };
 
-export default Modal;
+export default React.memo(Modal);

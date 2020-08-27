@@ -2,18 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import { StyledContainer } from "../../styles/productStyle/$Container";
 import Header from "../sections/header";
 import { StyledPageBtn } from "../../styles/productStyle/$PageBtn";
-import { useProductsState } from "../../Hooks/useProducts";
+import { useProducts } from "../../Hooks/useProducts";
 import { Item } from "../../model/index";
 import ProductsList from "../sections/productList";
-import _ from "lodash";
 
 const Products = () => {
-  const { items: products } = useProductsState();
-
-  //? 전역에서 가져온 Products state로 만든 Base state인 items와, items를 토대로
-  //? 실제 뷰로 보여지는 currentItem 으로 상태를 분리했지만 살짝 복잡해진감이 있어 고민 ...
-  //? 전역에 있는 아이템 리스트를 바로 렌더하면 굳이 items 상태가 필요한가 싶기도 하지만,
-  //? 필터 기능을 생각하면 분리하는게 맞는거 같고..! 좀더 생각해보고 수정할 수 있음 수정하자!
+  const { items: products } = useProducts();
 
   const [items, setItems] = useState<Item[]>(products);
   const [currentPage, setPage] = useState<number>(1);
@@ -24,12 +18,11 @@ const Products = () => {
 
   const onPagination = () => {
     const startIndex = (currentPage - 1) * pageSize;
-    const result = _.slice(items, startIndex, startIndex + pageSize);
+    const result = items.slice(startIndex, startIndex + pageSize);
     setCurrentItems(result);
   };
 
   const onOrderBy = useCallback(() => {
-    //! 상태 불변성을 위해 concat 메소드 추가
     let result =
       orderBy === "desc" ? [...items].sort((a, b) => b.score - a.score) : [...items].sort((a, b) => a.score - b.score);
 
@@ -57,13 +50,13 @@ const Products = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Header />
       <StyledContainer>
         <ProductsList items={currentItems} />
         {renderPageBtn(items)}
       </StyledContainer>
-    </React.Fragment>
+    </>
   );
 };
 
