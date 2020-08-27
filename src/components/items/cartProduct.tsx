@@ -63,4 +63,4 @@ const CartProduct = ({ item }: Props) => {
   );
 };
 
-export default CartProduct;
+export default React.memo(CartProduct);

@@ -52,4 +52,4 @@ const AmountSection = ({ openModal, closeModal }: Props) => {
   );
 };
 
-export default AmountSection;
+export default React.memo(AmountSection);

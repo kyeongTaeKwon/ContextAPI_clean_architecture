@@ -29,19 +29,22 @@ const Modal = ({ visible, closeModal }: Props) => {
     applyCoupon(coupon);
     closeModal();
   };
+
+  const renderCouponList = () => {
+    return coupons.map(coupon => <CouponItem coupon={coupon} onClick={onClick} key={coupon.title} />);
+  };
+
   return (
     <>
       <StyledModalOverlay visible={visible} />
       <StyledModalWrapper visible={visible} onClick={e => onMaskClick(e)}>
         <StyledModalInner>
           <StyledHeader>쿠폰을 선택해주세요</StyledHeader>
-          {coupons.map(coupon => (
-            <CouponItem coupon={coupon} onClick={onClick} key={coupon.title} />
-          ))}
+          {renderCouponList()}
         </StyledModalInner>
       </StyledModalWrapper>
     </>
   );
 };
 
-export default Modal;
+export default React.memo(Modal);
