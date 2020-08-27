@@ -1,24 +1,23 @@
 import React from "react";
 import { usePayments } from "../../Hooks/usePayments";
+import AmountBox from "../items/amountBox";
+
 import {
   StyledHeaderText,
-  StyledSubText,
-  StyledAmountText,
   StyledAddCouponBtn,
-  StyledAmountTextBox,
-  StyledAmountBox,
   StyledAmountSection,
   StyledAmountSectionFlexBox,
   StyledAplliedCouponText,
   StyledApplyCouponBox,
 } from "../../styles/CartStyle/$AmountSection";
-import { makeCommaPrice } from "../../util/makeComma";
+
 type Props = {
   openModal: () => void;
   closeModal: () => void;
 };
+
 const AmountSection = ({ openModal, closeModal }: Props) => {
-  const { totalOrderAmount, paymentPrice, discountPrice, appliedCoupon } = usePayments();
+  const { appliedCoupon } = usePayments();
 
   return (
     <StyledAmountSection>
@@ -32,21 +31,7 @@ const AmountSection = ({ openModal, closeModal }: Props) => {
           )}
           <StyledAddCouponBtn onClick={openModal}>쿠폰 적용하기</StyledAddCouponBtn>
         </StyledApplyCouponBox>
-
-        <StyledAmountBox>
-          <StyledAmountTextBox>
-            <StyledSubText>총 상품 금액 </StyledSubText>
-            <StyledSubText>{makeCommaPrice(totalOrderAmount)}원</StyledSubText>
-          </StyledAmountTextBox>
-          <StyledAmountTextBox>
-            <StyledSubText>상품 할인 금액 </StyledSubText>
-            <StyledSubText>{makeCommaPrice(discountPrice)}원</StyledSubText>
-          </StyledAmountTextBox>
-          <StyledAmountTextBox>
-            <StyledAmountText>총 결제 금액</StyledAmountText>
-            <StyledAmountText>{makeCommaPrice(paymentPrice)}원</StyledAmountText>
-          </StyledAmountTextBox>
-        </StyledAmountBox>
+        <AmountBox />
       </StyledAmountSectionFlexBox>
     </StyledAmountSection>
   );
