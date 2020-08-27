@@ -1,5 +1,5 @@
 import React from "react";
-import { usePayments } from "../../Hooks/usePaymentList";
+import { usePayments } from "../../Hooks/usePayments";
 import {
   StyledHeaderText,
   StyledSubText,

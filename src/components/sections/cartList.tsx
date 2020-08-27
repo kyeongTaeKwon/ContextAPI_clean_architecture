@@ -1,6 +1,6 @@
 import React from "react";
 import CartProudct from "../items/cartProduct";
-import { usePayments } from "../../Hooks/usePaymentList";
+import { usePayments } from "../../Hooks/usePayments";
 import { StyledListSection, StyledHeaderText, StyledSubText } from "../../styles/CartStyle/$CartList";
 
 const CartList = () => {

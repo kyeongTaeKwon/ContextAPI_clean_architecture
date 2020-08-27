@@ -3,7 +3,7 @@ import CartList from "../sections/cartList";
 import AmountSection from "../sections/amountSection";
 import { Item } from "../../model/index";
 import { Container, CartHeader, HeaderText } from "../../styles/CartStyle/$Container";
-import { PaymentsContextProvider } from "../../contexts/PaymentListContext";
+import { PaymentsContextProvider } from "../../contexts/PaymentsContext";
 import CouponModal from "../sections/couponModal";
 interface PaymentItem extends Item {
   amount?: number;

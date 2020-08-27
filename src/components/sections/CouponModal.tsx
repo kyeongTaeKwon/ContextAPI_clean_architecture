@@ -1,7 +1,7 @@
 import React from "react";
 import { Coupon } from "../../model/index";
 import { useProductsState } from "../../Hooks/useProducts";
-import { usePayments } from "../../Hooks/usePaymentList";
+import { usePayments } from "../../Hooks/usePayments";
 import CouponItem from "../items/couponItem";
 import {
   StyledModalInner,

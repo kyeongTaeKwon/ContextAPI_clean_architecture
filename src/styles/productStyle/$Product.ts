@@ -14,26 +14,26 @@ const animation = {
     },
   },
 };
-export const ProductBox = styled.div`
+export const StyledProductBox = styled.div`
   /* flex: auto; */
   margin-right: 5rem;
   margin-bottom: 6rem;
   height: 30rem;
 `;
 
-export const ProudctImgBox = styled.div`
+export const StyledProudctImgBox = styled.div`
   width: 35rem;
   height: 19.6rem;
   position: relative;
 `;
-export const ProductImg = styled.img`
+export const StyledProductImg = styled.img`
   flex: auto;
   width: 100%;
   height: 100%;
   border-radius: 4px;
 `;
 
-export const ProductTitle = styled.p`
+export const StyledProductTitle = styled.p`
   font-size: 1.4rem;
   letter-spacing: -0.03rem;
   font-weight: bold;
@@ -42,12 +42,12 @@ export const ProductTitle = styled.p`
   margin-bottom: 2.4rem;
 `;
 
-export const ProductPrice = styled.h3`
+export const StyledProductPrice = styled.h3`
   font-size: 1.6rem;
   font-weight: bold;
 `;
 
-export const AddCartBtn = styled.button`
+export const StyledAddCartBtn = styled.button`
   background-color: transparent;
   right: 0rem;
   padding: 0px;
@@ -64,7 +64,7 @@ export const AddCartBtn = styled.button`
   }
 `;
 
-export const AddCartMotionDiv = styled(motion.div).attrs(() => ({
+export const StyledAddCartMotionDiv = styled(motion.div).attrs(() => ({
   initial: "hidden",
   variants: animation,
 }))`
@@ -80,7 +80,7 @@ export const AddCartMotionDiv = styled(motion.div).attrs(() => ({
   border-radius: 4px;
   background-color: ${props => props.theme.colors.background};
 `;
-export const AddCartText = styled.p`
+export const StyledAddCartText = styled.p`
   /* margin: 0px; */
   margin-top: 1.6rem;
   margin-left: 1.6rem;
@@ -88,7 +88,7 @@ export const AddCartText = styled.p`
   font-size: 1.5rem;
 `;
 
-export const LinkToCart = styled(Link)`
+export const StyledLinkToCart = styled(Link)`
   position: absolute;
   right: 1.6rem;
   top: 1.6rem;

@@ -1,6 +1,6 @@
 import { useMemo, useEffect, useCallback, useContext, useState } from "react";
 import { PaymentItem, Coupon } from "../model/index";
-import { PaymentsDispatchContext, PaymentsStateContext } from "../contexts/PaymentListContext";
+import { PaymentsDispatchContext, PaymentsStateContext } from "../contexts/PaymentsContext";
 import { useProductsState } from "./useProducts";
 
 export const usePayments = () => {

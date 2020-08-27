@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledHeader } from "../../styles/headerStyle/userInfoItem";
+import { StyledHeader } from "../../styles/headerStyle/$userInfoItem";
 import UserInfo from "../items/userInfo";
 
 const Header = () => {
