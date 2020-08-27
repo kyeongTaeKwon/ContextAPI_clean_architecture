@@ -1,7 +1,7 @@
 import React from "react";
 import CartProudct from "../items/cartProduct";
 import { usePayments } from "../../Hooks/usePaymentList";
-import { ListSection } from "../../styles/CartStyle/CartList";
+import { StyledListSection, StyledHeaderText, StyledSubText } from "../../styles/CartStyle/$CartList";
 
 const CartList = () => {
   const { paymentList } = usePayments();
@@ -9,10 +9,11 @@ const CartList = () => {
     return paymentList.map(item => <CartProudct item={item} key={item.id} />);
   };
   return (
-    <ListSection>
-      <h2 style={{ marginLeft: "2.8rem" }}>주문 정보</h2>
+    <StyledListSection>
+      <StyledHeaderText>주문 정보</StyledHeaderText>
+      {paymentList.length === 0 && <StyledSubText>장바구니에 담겨있는 제품이 없습니다.</StyledSubText>}
       {renderCartList()}
-    </ListSection>
+    </StyledListSection>
   );
 };
 

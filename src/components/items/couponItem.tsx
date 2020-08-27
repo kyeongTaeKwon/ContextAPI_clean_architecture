@@ -1,6 +1,6 @@
 import React from "react";
 import { Coupon } from "../../model/index";
-
+import { StyledCouponItemBox, StyledCouponTitle, StyeldApplyBtn } from "../../styles/CartStyle/$CouponItem";
 type Props = {
   coupon: Coupon;
   onClick: (coupon: Coupon) => void;
@@ -8,10 +8,10 @@ type Props = {
 
 const CouponItem = ({ coupon, onClick }: Props) => {
   return (
-    <div>
-      <p>{coupon.title}</p>
-      <button>적용하기</button>
-    </div>
+    <StyledCouponItemBox>
+      <StyledCouponTitle>{coupon.title}</StyledCouponTitle>
+      <StyeldApplyBtn onClick={() => onClick(coupon)}>적용하기</StyeldApplyBtn>
+    </StyledCouponItemBox>
   );
 };
 

@@ -15,7 +15,7 @@ import {
   CHandleAmountBtn,
   CSumText,
   CDeleteBtn,
-} from "../../styles/CartStyle/CartItem";
+} from "../../styles/CartStyle/$CartProduct";
 
 type Props = {
   item: PaymentItem;
