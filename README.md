@@ -23,7 +23,7 @@ yarn start
 리액트 Hooks의 contextAPI를 사용하여 상품 목록,장바구니 페이지와 간단한 CRUD 기능을 만들었습니다.
 
 context API 자체가 굉장히 자유도가 높아 사용하기에 따라, 공식 문서에 나와 있는 props drilling을 해결하는 
-용도 뿐 아니라 State mangement 와 비즈니스 로직 분리에도 유용하게 사용할 수 있습니다.
+용도 뿐 아니라 State mangement 와 커스텀 훅스를 통한 비즈니스 로직 분리에도 유용하게 사용할 수 있습니다.
 그점을 이용해서 각종 클린 아키텍처 레퍼런스를 참고해서
  **Context API + Styled Components 클린 아키텍처** 프로젝트를 설계해보았습니다.!
 
