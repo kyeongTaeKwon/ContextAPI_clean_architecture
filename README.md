@@ -1,4 +1,4 @@
-# ContextAPI Clean ArCitecture
+# ContextAPI Clean Arcitecture
 
 node version 14.4.0
 
