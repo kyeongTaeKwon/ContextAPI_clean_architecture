@@ -25,7 +25,7 @@ yarn start
 context API 자체가 굉장히 자유도가 높아 사용하기에 따라, 공식 문서에 나와 있는 props drilling을 해결하는 
 용도 뿐 아니라 State mangement 와 커스텀 훅스를 통한 비즈니스 로직 분리에도 유용하게 사용할 수 있습니다.
 그점을 이용해서 각종 클린 아키텍처 레퍼런스를 참고해서
- **Context API + Styled Components 클린 아키텍처** 프로젝트를 설계해보았습니다.!
+ **Context API + Styled Components 클린 아키텍처** 프로젝트 구조를 설계해보았습니다.!
 
 contextAPI의 프로젝트 예제가 워낙 적어 Redux 프로젝트에 커스텀 훅스를 섞어서 설계했습니다. 
 
